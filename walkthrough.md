@@ -6,7 +6,7 @@
 
 The following functions of Amazon Q are designed to help maximize efficiency while drafting code. Right-clicking text within the code window will allow you to select from the following options:
 
-![The menu that pops up when right clicking text.](./screenshots/rightclick_menu.png)
+![The menu that pops up when right clicking text.](/screenshots/rightclick_menu.png)
 
 * **Explain**
 
@@ -23,7 +23,7 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
     ```
     ...will have Q return the following in response in the chat window:
     
-    ![The explanation for the previous code.](./screenshots/explaincode.png)
+    ![The explanation for the previous code.](/screenshots/explaincode.png)
     
     The assistant will continue with its thorough breakdown of the function.
 
@@ -33,11 +33,11 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
 
     Asking Q to fix, reformat, or optimize your code using the chat box will have it return something along the lines of:
 
-    ![Code optimization.](./screenshots/optimization.png)
+    ![Code optimization.](/screenshots/optimization.png)
 
     A split window will then allow you to visually see the changes made, and choose whether to accept or reject them.
 
-    ![Code rewrite using optimization function.](./screenshots/optimization_codererite.png)
+    ![Code rewrite using optimization function.](/screenshots/optimization_codererite.png)
 
 
 * **Generate Tests:**
@@ -66,19 +66,19 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
 
     Right clicking the highlighted function and choosing "generate test" will generate the following unit tests:
 
-    ![Generate Test for copy_file function.](./screenshots/generatetest.png)
+    ![Generate Test for copy_file function.](/screenshots/generatetest.png)
 * **Send to Prompt:**
 
     Highlighted text will be sent into the chat window's text box, where additional questions or context can be added using Amazon Q.
 
     For example, if the function we previously used, def log_progress, were to be sent to prompt, it would look like this:
 
-    ![Send to prompt.](./screenshots/sendtoprompt.png)
+    ![Send to prompt.](/screenshots/sendtoprompt.png)
 * **Inline Chat:**
 
     Selecting inline chat will simply open the inline chat window, where in a similar fashion as "Send to Prompt," one can add additional context or ask for feedback from Q about the selected code.
 
-    ![Inline chat.](./screenshots/inlinechat.png)
+    ![Inline chat.](/screenshots/inlinechat.png)
 
     More information about using inline chat can be found on the [Amazon Q Developer user guide.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-inline-chat.html)
 ## Amazon Q CLI
@@ -94,7 +94,7 @@ The following functions of Amazon Q pertain to usage within the command line int
     
     This will allow conversation with Q within the terminal, like so:
 
-    ![Q CLI chat.](./screenshots/cli_chat.png) 
+    ![Q CLI chat.](/screenshots/cli_chat.png) 
 
 ## Amazon Q Rules Files
 
@@ -104,7 +104,7 @@ To establish rules for Amazon Q to follow, there are a few options to select fro
 
     Open the assistant chatbox window and click on the "Rules" button in the upper right corner of the text box.
     
-    ![Q chatbox rules](./screenshots/chatboxrules.png)
+    ![Q chatbox rules](/screenshots/chatboxrules.png)
 
     Select "Create a new rule" and title your rule.
 
