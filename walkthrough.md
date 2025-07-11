@@ -1,6 +1,7 @@
 # Walkthrough
 
->Note: The following screenshots were taken on a Macbook Pro Apple M2 Max, running macOS Sonomoa 14.6.1. 
+> *Note: The following reference screenshots were taken on a Macbook Pro Apple M2 Max, running macOS Sonomoa 14.6.1 and Visual Studio Code 1.100.3. Shortcuts, file directories, and other machine-specific characteristics may look different in your environment than what is pictured or listed here.*
+
 ## Amazon Q Chatbox Functions
 
 The following functions of Amazon Q are designed to help maximize efficiency while drafting code. Right-clicking text within the code window will allow you to select from the following options:
@@ -24,7 +25,7 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
     
     ![The explanation for the previous code.](/screenshots/explaincode.png)
     
-    The text continues on with its thorough breakdown of the function.
+    The assistant will continue with its thorough breakdown of the function.
 
 * **Fix**, **Optimize**, and **Refactor:**
 
@@ -41,7 +42,32 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
 
 * **Generate Tests:**
 
-    q
+    Using the assistant to generate a test for a function will have Q create a separate code file and generate tests to assess the purpose and intended goal of the selected function. For example, take the following function:
+
+    ```
+    def copy_file(s3_client, source_bucket, source_key, dest_bucket, dest_prefix, stats):
+        try:
+            base_name = os.path.splitext(os.path.basename(source_key))[0]
+            file_ext = os.path.splitext(source_key)[1]
+            sequence = stats.increment()
+            new_filename = f"{base_name}_{sequence:06d}{file_ext}"
+            new_key = f"{dest_prefix}/{new_filename}"
+        
+            s3_client.copy_object(
+                Bucket=dest_bucket,
+                Key=new_key,
+                CopySource={'Bucket': source_bucket, 'Key': source_key}
+            )
+            return True
+        except Exception as e:
+            print(f"Error copying file: {e}")
+            return False
+    ```
+
+    Right clicking the highlighted function and choosing "generate test" will generate the following unit tests:
+
+    ![Generate Test for copy_file function.](/screenshots/generatetest.png)
+    
 * **Send to Prompt:**
 
     Highlighted text will be sent into the chat window's text box, where additional questions or context can be added using Amazon Q.
@@ -60,16 +86,38 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
 
 The following functions of Amazon Q pertain to usage within the command line interface (CLI).
 
-* Feature 1: Activating Q
+* **Activating Q:**
 
     In order to begin a chat with Q in the command line, use the function
     > q chat
-
-    This will allow conversation with Q in the terminal, like so:
+    
+    in the terminal.
+    
+    This will allow conversation with Q within the terminal, like so:
 
     ![Q CLI chat.](/screenshots/cli_chat.png) 
 
 ## Amazon Q Rules Files
+
+To establish rules for Amazon Q to follow, there are a few options to select from.
+
+1. **From within the chatbox:**
+
+    Open the assistant chatbox window and click on the "Rules" button in the upper right corner of the text box.
+    
+    ![Q chatbox rules](/screenshots/chatboxrules.png)
+
+    Select "Create a new rule" and title your rule.
+
+    From there, you can edit your rule using the generated markdown file found in the projects [Your Project Root]/.amazonq/rules folder.
+
+2. **Directly from a markdown file:**
+
+    Create a folder titled [Your Project Root]/.amazonq/rules and within that folder, create a markdown file and title it how you please. Add your (detailed) rules within that markdown file and save.
+
+Amazon Q will use these files as context from here on out when generating or optimizing code.
+
+For more information, see the [documentation in the Amazon Q Developer user guide.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/context-project-rules.html)
 
 ## Important to Note:
 
@@ -79,6 +127,6 @@ There are a few small considerations to keep in mind when using Q.
 
     For example, highlighting the name of a function or the first line is *not* enough information for Q to help optimize, generate a unit test for, or refactor the whole function. It will not understand it is for the whole function, and instead only address the single highlighted line.
 
-    This can be useful in certain cases, such as
+2. When adding context or outlining rules, be sure to be extremely explicit and detailed in what is expected of the assistant. Ambiguities can cause issues, as the LLM will fill in any gaps itself, and it may cause issues if it fills it in incorrectly.
 
-2. 
+3. Be sure to vet any output by the LLM before implementing what it has offered.
