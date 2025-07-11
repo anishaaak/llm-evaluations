@@ -67,6 +67,7 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
     Right clicking the highlighted function and choosing "generate test" will generate the following unit tests:
 
     ![Generate Test for copy_file function.](/screenshots/generatetest.png)
+    
 * **Send to Prompt:**
 
     Highlighted text will be sent into the chat window's text box, where additional questions or context can be added using Amazon Q.
