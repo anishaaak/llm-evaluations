@@ -12,7 +12,7 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
 
     This is a relatively self-explanatory feature: highlighting specific code and selecting "Explain" will have Q's chatbox appear and explain in detail the purpose, output, and context of the selected code.
 
-    For example, highlighting and asking Q to explain the following code:
+    For example, highlighting and asking Q to explain the following code, taken from [this repository, Gen AI Intelligent Document Processing (GenAIIDP)](https://github.com/aws-solutions-library-samples/accelerated-intelligent-document-processing-on-aws):
 
     ```
     def log_progress(stats, target_rate):
@@ -67,6 +67,8 @@ The following functions of Amazon Q are designed to help maximize efficiency whi
     Right clicking the highlighted function and choosing "generate test" will generate the following unit tests:
 
     ![Generate Test for copy_file function.](/screenshots/generatetest.png)
+
+    For more context, visit the [Amazon Q Developer user guide](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/test-generation.html).
 * **Send to Prompt:**
 
     Highlighted text will be sent into the chat window's text box, where additional questions or context can be added using Amazon Q.
@@ -108,11 +110,11 @@ To establish rules for Amazon Q to follow, there are a few options to select fro
 
     Select "Create a new rule" and title your rule.
 
-    From there, you can edit your rule using the generated markdown file found in the projects [Your Project Root]/.amazonq/rules folder.
+    From there, you can edit your rule using the generated markdown file found in the projects *[Your Project Root]/.amazonq/rules* folder.
 
 2. **Directly from a markdown file:**
 
-    Create a folder titled [Your Project Root]/.amazonq/rules and within that folder, create a markdown file and title it how you please. Add your (detailed) rules within that markdown file and save.
+    Create a folder titled *[Your Project Root]/.amazonq/rules* and within that folder, create a markdown file and title it how you please. Add your (detailed) rules within that markdown file and save.
 
 Amazon Q will use these files as context from here on out when generating or optimizing code.
 
@@ -128,4 +130,4 @@ There are a few small considerations to keep in mind when using Q.
 
 2. When adding context or outlining rules, be sure to be extremely explicit and detailed in what is expected of the assistant. Ambiguities can cause issues, as the LLM will fill in any gaps itself, and it may cause issues if it fills it in incorrectly.
 
-3. Be sure to vet any output by the LLM before implementing what it has offered.
+3. Verify any and all output by the LLM before implementing what it has offered.
